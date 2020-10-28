@@ -1,5 +1,6 @@
 import React from "react";
 import Details from "./Details";
+import "./Post.css";
 
 class Post extends React.Component {
   state = {
@@ -12,7 +13,7 @@ class Post extends React.Component {
 
   async componentDidMount() {
     let url =
-      "https://api.unsplash.com/photos/random/?client_id=prCgC9KYjIRWRTVXm_gE-OxCYBDK9qWDAIOG9uGNF8g&count=4";
+      "https://api.unsplash.com/photos/random/?client_id=ubL5ogcPU8PbD_jBnPbC91Im34XcNIM7egFwlsthwjw&count=4";
     let response = await fetch(url);
     let data = await response.json();
     this.setState({
@@ -32,20 +33,23 @@ class Post extends React.Component {
         {this.state.loading || !this.state.image1 ? (
           <img src="./loading.png" alt="loading" />
         ) : (
-          <div>
-            <div className="first">
+          <div className="feed">
+            <div className="post" id="1">
               <Details />
               <img src={this.state.image1.urls.small} alt="post"></img>
             </div>
-            <div className="second">
+            <br />
+            <div className="post" id="2">
               <Details />
               <img src={this.state.image2.urls.small} alt="post"></img>
             </div>
-            <div className="third">
+            <br />
+            <div className="post" id="3">
               <Details />
               <img src={this.state.image3.urls.small} alt="post"></img>
             </div>
-            <div className="fourth">
+            <br />
+            <div className="post" id="4">
               <Details />
               <img src={this.state.image4.urls.small} alt="post"></img>
             </div>
