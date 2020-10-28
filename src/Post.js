@@ -6,6 +6,8 @@ class Post extends React.Component {
     loading: true,
     image1: null,
     image2: null,
+    image3: null,
+    image4: null,
   };
 
   async componentDidMount() {
@@ -13,7 +15,13 @@ class Post extends React.Component {
       "https://api.unsplash.com/photos/random/?client_id=prCgC9KYjIRWRTVXm_gE-OxCYBDK9qWDAIOG9uGNF8g&count=4";
     let response = await fetch(url);
     let data = await response.json();
-    this.setState({ image1: data[0], loading: false, image2: data[1] });
+    this.setState({
+      image1: data[0],
+      image2: data[1],
+      image3: data[2],
+      image4: data[3],
+      loading: false,
+    });
 
     console.log({ data });
   }
@@ -32,6 +40,14 @@ class Post extends React.Component {
             <div className="second">
               <Details />
               <img src={this.state.image2.urls.small} alt="post"></img>
+            </div>
+            <div className="third">
+              <Details />
+              <img src={this.state.image3.urls.small} alt="post"></img>
+            </div>
+            <div className="fourth">
+              <Details />
+              <img src={this.state.image4.urls.small} alt="post"></img>
             </div>
           </div>
         )}
