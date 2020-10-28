@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./Interact.css";
-import liked from "./liked.png";
-import unliked from "./unliked.png";
+import liked from "./images/liked.png";
+import unliked from "./images/unliked.png";
 
 const Interact = () => {
   const [like, updateLike] = useState(false);
