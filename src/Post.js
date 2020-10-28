@@ -4,28 +4,35 @@ import Details from "./Details";
 class Post extends React.Component {
   state = {
     loading: true,
-    image: null,
+    image1: null,
+    image2: null,
   };
 
   async componentDidMount() {
-    const url =
-      "https://api.unsplash.com/photos/random/?client_id=wMeE-b3XhPG8nLOlbunNci7M-Xym0rcU0-2YbsfsMyc";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({ image: data, loading: false });
+    let url =
+      "https://api.unsplash.com/photos/random/?client_id=prCgC9KYjIRWRTVXm_gE-OxCYBDK9qWDAIOG9uGNF8g&count=4";
+    let response = await fetch(url);
+    let data = await response.json();
+    this.setState({ image1: data[0], loading: false, image2: data[1] });
+
+    console.log({ data });
   }
 
   render() {
     return (
       <div>
-        {this.state.loading || !this.state.image ? (
+        {this.state.loading || !this.state.image1 ? (
           <img src="./loading.png" alt="loading" />
         ) : (
           <div>
-            <div>
+            <div className="first">
               <Details />
+              <img src={this.state.image1.urls.small} alt="post"></img>
             </div>
-            <img src={this.state.image.urls.small} alt="post"></img>
+            <div className="second">
+              <Details />
+              <img src={this.state.image2.urls.small} alt="post"></img>
+            </div>
           </div>
         )}
       </div>
