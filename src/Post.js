@@ -1,5 +1,6 @@
 import React from "react";
 import Details from "./Details";
+import Interact from "./Interact";
 import "./Post.css";
 
 class Post extends React.Component {
@@ -37,21 +38,25 @@ class Post extends React.Component {
             <div className="post" id="1">
               <Details />
               <img src={this.state.image1.urls.small} alt="post"></img>
+              <Interact />
             </div>
             <br />
             <div className="post" id="2">
               <Details />
               <img src={this.state.image2.urls.small} alt="post"></img>
+              <Interact />
             </div>
             <br />
             <div className="post" id="3">
               <Details />
               <img src={this.state.image3.urls.small} alt="post"></img>
+              <Interact />
             </div>
             <br />
             <div className="post" id="4">
               <Details />
               <img src={this.state.image4.urls.small} alt="post"></img>
+              <Interact />
             </div>
           </div>
         )}
