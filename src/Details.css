@@ -1,0 +1,8 @@
+.userDetails {
+  display: flex;
+  text-align: center;
+}
+
+.userName {
+  text-transform: lowercase;
+}
