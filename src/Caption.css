@@ -2,7 +2,6 @@
   font-size: 12px;
   text-align: left;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  width: fit-content;
+  padding: 8px;
 }

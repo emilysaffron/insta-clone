@@ -15,7 +15,7 @@ class Post extends React.Component {
 
   async componentDidMount() {
     let url =
-      "https://api.unsplash.com/photos/random/?client_id=prgp4m1EtMeK9dpbjkfZRfhK9KxDwx_kr2sl_ee62Pc&count=4";
+      "https://api.unsplash.com/photos/random/?client_id=9Njuuq6n-SS10CSmB1lvvKQ-JLrDKUkJg3KyvNvkspI&count=4";
     let response = await fetch(url);
     let data = await response.json();
     this.setState({
@@ -41,6 +41,7 @@ class Post extends React.Component {
               <img src={this.state.image1.urls.small} alt="post"></img>
               <div className="footer">
                 <Interact />
+
                 <div className="caption">
                   <Caption />
                 </div>
@@ -52,6 +53,7 @@ class Post extends React.Component {
               <img src={this.state.image2.urls.small} alt="post"></img>
               <div className="footer">
                 <Interact />
+
                 <div className="caption">
                   <Caption />
                 </div>
@@ -63,6 +65,7 @@ class Post extends React.Component {
               <img src={this.state.image3.urls.small} alt="post"></img>
               <div className="footer">
                 <Interact />
+
                 <div className="caption">
                   <Caption />
                 </div>
@@ -74,6 +77,7 @@ class Post extends React.Component {
               <img src={this.state.image4.urls.small} alt="post"></img>
               <div className="footer">
                 <Interact />
+
                 <div className="caption">
                   <Caption />
                 </div>
