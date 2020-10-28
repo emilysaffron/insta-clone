@@ -1,3 +1,4 @@
-img {
+.interact {
   width: min-content;
+  cursor: pointer;
 }

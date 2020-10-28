@@ -7,7 +7,7 @@ const Interact = () => {
   const [like, updateLike] = useState(false);
   const clicked = useCallback(() => updateLike(!like), [like]);
   const [button, updateButton] = useState(
-    <img src={unliked} onClick={clicked} alt={unliked} />
+    <img className="interact" src={unliked} onClick={clicked} alt={unliked} />
   );
 
   useEffect(() => {
@@ -15,7 +15,9 @@ const Interact = () => {
 
     let name = like ? classes[0] : classes[1];
 
-    updateButton(<img src={name} onClick={clicked} alt={name} />);
+    updateButton(
+      <img className="interact" src={name} onClick={clicked} alt={name} />
+    );
   }, [like, clicked]);
 
   return button;
