@@ -1,12 +1,23 @@
-.bar {
+.logo {
   background-color: white;
   height: 54px;
   border-bottom-style: solid;
   border-bottom-color: lightgray;
   border-bottom-width: 1px;
+  width: 100%;
 }
 
-.bar img {
+.logo img {
   display: flex;
   justify-self: flex-start;
+}
+
+.scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: lightgray;
+  width: 100%;
+  z-index: 100;
 }
