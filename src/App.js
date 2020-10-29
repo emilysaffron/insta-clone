@@ -9,10 +9,12 @@ function App() {
       <section>
         <Navbar />
       </section>
-      <section className="stories">
-        <StoryBar />
-      </section>
+
       <section className="App-content">
+        <div className="stories">
+          <StoryBar />
+        </div>
+        <br />
         <Post />
         <Button />
       </section>

@@ -7,10 +7,6 @@ const StoryBar = () => {
       <Stories />
       <Stories />
       <Stories />
-      <Stories />
-      <Stories />
-      <Stories />
-      <Stories />
     </div>
   );
 };

@@ -1,4 +1,11 @@
 .storyBar {
   display: flex;
-  justify-content: center;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+}
+
+.storyBar img {
+  cursor: pointer;
+  margin: 14px;
 }
