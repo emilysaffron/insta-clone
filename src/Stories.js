@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import StoryContent from "./Story-content";
+import "./Stories.css";
 class Stories extends React.Component {
   state = {
     loading: true,

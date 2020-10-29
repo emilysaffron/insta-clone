@@ -2,7 +2,7 @@ import "./App.css";
 import Post from "./Post";
 import Navbar from "./Navbar";
 import Button from "./Button";
-import Stories from "./Stories";
+import StoryBar from "./Story-bar";
 function App() {
   return (
     <div className="App">
@@ -10,7 +10,7 @@ function App() {
         <Navbar />
       </section>
       <section className="stories">
-        <Stories />
+        <StoryBar />
       </section>
       <section className="App-content">
         <Post />
