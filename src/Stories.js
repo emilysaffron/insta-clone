@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "./Modal";
-
+import StoryContent from "./Story-content";
 class Stories extends React.Component {
   state = {
     loading: true,
@@ -35,7 +35,7 @@ class Stories extends React.Component {
         {showModal ? (
           <Modal>
             <div>
-              <h1>Test</h1>
+              <StoryContent />
               <div className="buttons">
                 <button onClick={this.toggleModal}>Exit</button>
               </div>

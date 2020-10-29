@@ -25,8 +25,6 @@ class Post extends React.Component {
       image4: data[3],
       loading: false,
     });
-
-    console.log({ data });
   }
 
   render() {
