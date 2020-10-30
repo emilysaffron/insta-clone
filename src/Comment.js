@@ -21,6 +21,14 @@ class Comment extends Component {
     updated.push(this.state.comment);
     this.setState({ comments: updated });
     console.log(this.state.comments);
+    this.clear();
+  }
+
+  clear() {
+    let reset = "";
+    this.setState({
+      comment: reset,
+    });
   }
 
   render() {
