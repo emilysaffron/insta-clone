@@ -15,8 +15,8 @@ class Caption extends React.Component {
     };
     const response = await fetch(url, options);
     const data = await response.json();
+
     this.setState({ caption: data, loading: false });
-    console.log(data);
   }
 
   render() {

@@ -2,6 +2,7 @@ import React from "react";
 import Details from "./Details";
 import Interact from "./Interact";
 import Caption from "./Caption";
+import Comment from "./Comment";
 import "./Post.css";
 
 class Post extends React.Component {
@@ -43,6 +44,9 @@ class Post extends React.Component {
                 <div className="caption">
                   <Caption />
                 </div>
+                <div className="comments">
+                  <Comment />
+                </div>
               </div>
             </div>
             <br />
@@ -54,6 +58,9 @@ class Post extends React.Component {
 
                 <div className="caption">
                   <Caption />
+                </div>
+                <div className="comments">
+                  <Comment />
                 </div>
               </div>
             </div>
@@ -67,6 +74,9 @@ class Post extends React.Component {
                 <div className="caption">
                   <Caption />
                 </div>
+                <div className="comments">
+                  <Comment />
+                </div>
               </div>
             </div>
             <br />
@@ -78,6 +88,9 @@ class Post extends React.Component {
 
                 <div className="caption">
                   <Caption />
+                </div>
+                <div className="comments">
+                  <Comment />
                 </div>
               </div>
             </div>

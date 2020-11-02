@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Comment.css";
 
 class Comment extends Component {
   constructor() {
@@ -17,10 +18,12 @@ class Comment extends Component {
   }
 
   onSubmitComment() {
-    let updated = this.state.comments.slice();
-    updated.push(this.state.comment);
-    this.setState({ comments: updated });
-    console.log(this.state.comments);
+    if (this.state.comment) {
+      let updated = this.state.comments.slice();
+      updated.push(this.state.comment);
+      this.setState({ comments: updated });
+      console.log(this.state.comments);
+    }
     this.clear();
   }
 
@@ -34,22 +37,23 @@ class Comment extends Component {
   render() {
     return (
       <div>
-        <div>
-          <input
-            name="comment"
-            type="text"
-            value={this.state.comment}
-            onChange={this.onInputchange}
-          />
-        </div>
-
         <ul>
           {this.state.comments.map((item) => {
             return <li>{item}</li>;
           })}
         </ul>
-        <div>
-          <button onClick={this.onSubmitComment}>Send</button>
+        <div className="commentsblock">
+          <input
+            name="comment"
+            type="text"
+            placeholder="Add a comment..."
+            autoComplete="off"
+            value={this.state.comment}
+            onChange={this.onInputchange}
+          />
+          <div>
+            <button onClick={this.onSubmitComment}>Send</button>
+          </div>
         </div>
       </div>
     );
