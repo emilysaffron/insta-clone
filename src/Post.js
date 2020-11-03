@@ -3,7 +3,22 @@ import Details from "./Details";
 import Interact from "./Interact";
 import Caption from "./Caption";
 import Comment from "./Comment";
-import "./Post.css";
+import styled from "@emotion/styled";
+
+const StyledPost = styled.div`
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+`;
+
+const StyledFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 class Post extends React.Component {
   state = {
@@ -35,10 +50,10 @@ class Post extends React.Component {
           <img src="./loading.png" alt="loading" />
         ) : (
           <div className="feed">
-            <div className="post" id="1">
+            <StyledPost id="1">
               <Details />
               <img src={this.state.image1.urls.small} alt="post"></img>
-              <div className="footer">
+              <StyledFooter>
                 <Interact />
 
                 <div className="caption">
@@ -47,13 +62,13 @@ class Post extends React.Component {
                 <div className="comments">
                   <Comment />
                 </div>
-              </div>
-            </div>
+              </StyledFooter>
+            </StyledPost>
             <br />
-            <div className="post" id="2">
+            <StyledPost id="2">
               <Details />
               <img src={this.state.image2.urls.small} alt="post"></img>
-              <div className="footer">
+              <StyledFooter>
                 <Interact />
 
                 <div className="caption">
@@ -62,13 +77,13 @@ class Post extends React.Component {
                 <div className="comments">
                   <Comment />
                 </div>
-              </div>
-            </div>
+              </StyledFooter>
+            </StyledPost>
             <br />
-            <div className="post" id="3">
+            <StyledPost id="3">
               <Details />
               <img src={this.state.image3.urls.small} alt="post"></img>
-              <div className="footer">
+              <StyledFooter>
                 <Interact />
 
                 <div className="caption">
@@ -77,13 +92,13 @@ class Post extends React.Component {
                 <div className="comments">
                   <Comment />
                 </div>
-              </div>
-            </div>
+              </StyledFooter>
+            </StyledPost>
             <br />
-            <div className="post" id="4">
+            <StyledPost id="4">
               <Details />
               <img src={this.state.image4.urls.small} alt="post"></img>
-              <div className="footer">
+              <StyledFooter>
                 <Interact />
 
                 <div className="caption">
@@ -92,8 +107,8 @@ class Post extends React.Component {
                 <div className="comments">
                   <Comment />
                 </div>
-              </div>
-            </div>
+              </StyledFooter>
+            </StyledPost>
           </div>
         )}
       </div>

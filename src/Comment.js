@@ -1,5 +1,36 @@
 import React, { Component } from "react";
-import "./Comment.css";
+import styled from "@emotion/styled";
+
+const StyledComments = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-top: solid 1px lightgray;
+  & button {
+    background-color: white;
+    border: none;
+    outline: none;
+    color: #0095f6;
+    display: flex;
+    cursor: pointer;
+  }
+`;
+
+const StyledList = styled.ul`
+  list-style: none;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+`;
+
+const StyledInput = styled.input`
+  border: none;
+  outline: none;
+`;
 
 class Comment extends Component {
   constructor() {
@@ -37,13 +68,13 @@ class Comment extends Component {
   render() {
     return (
       <div>
-        <ul>
+        <StyledList>
           {this.state.comments.map((item) => {
             return <li>{item}</li>;
           })}
-        </ul>
-        <div className="commentsblock">
-          <input
+        </StyledList>
+        <StyledComments>
+          <StyledInput
             name="comment"
             type="text"
             placeholder="Add a comment..."
@@ -54,7 +85,7 @@ class Comment extends Component {
           <div>
             <button onClick={this.onSubmitComment}>Send</button>
           </div>
-        </div>
+        </StyledComments>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import StoryContent from "./Story-content";
-import "./Stories.css";
+
 class Stories extends React.Component {
   state = {
     loading: true,
@@ -20,6 +20,7 @@ class Stories extends React.Component {
 
   render() {
     const { showModal } = this.state;
+
     return (
       <div>
         {this.state.loading || !this.state.person ? (

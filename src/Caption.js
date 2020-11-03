@@ -1,5 +1,13 @@
 import React from "react";
-import "./Caption.css";
+import styled from "@emotion/styled";
+
+const StyledText = styled.div`
+  font-size: 12px;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+`;
 class Caption extends React.Component {
   state = {
     loading: true,
@@ -23,7 +31,7 @@ class Caption extends React.Component {
     return this.state.loading || !this.state.caption ? (
       <div>"loading..."</div>
     ) : (
-      <div className="text">{this.state.caption.joke}</div>
+      <StyledText>{this.state.caption.joke}</StyledText>
     );
   }
 }

@@ -1,5 +1,25 @@
 import React from "react";
-import "./Details.css";
+import styled from "@emotion/styled";
+
+const StyledDetails = styled.div`
+  display: flex;
+  flex-direction: row;
+  & img {
+    border-radius: 50%;
+    margin: 10px;
+  }
+`;
+
+const StyledName = styled.div`
+  text-transform: lowercase;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 class Details extends React.Component {
   state = {
     loading: true,
@@ -19,12 +39,12 @@ class Details extends React.Component {
         {this.state.loading || !this.state.person ? (
           <div>loading...</div>
         ) : (
-          <div className="userDetails">
+          <StyledDetails>
             <img src={this.state.person.picture.medium} alt="profile" />
-            <div className="userName">
+            <StyledName>
               {this.state.person.name.first + this.state.person.name.last}
-            </div>
-          </div>
+            </StyledName>
+          </StyledDetails>
         )}
       </div>
     );
