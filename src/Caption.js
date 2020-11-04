@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 
 const StyledText = styled.div`
@@ -8,32 +8,33 @@ const StyledText = styled.div`
   justify-content: center;
   padding: 8px;
 `;
-class Caption extends React.Component {
-  state = {
-    loading: true,
-    caption: null,
-  };
 
-  async componentDidMount() {
-    const url = "https://icanhazdadjoke.com";
-    const options = {
-      headers: {
-        Accept: "application/json",
-      },
-    };
-    const response = await fetch(url, options);
-    const data = await response.json();
+const Caption = () => {
+  const [loading, updateLoading] = useState(true);
+  const [caption, updateCaption] = useState(null);
 
-    this.setState({ caption: data, loading: false });
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const url = "https://icanhazdadjoke.com";
+      const options = {
+        headers: {
+          Accept: "application/json",
+        },
+      };
+      const response = await fetch(url, options);
+      const data = await response.json();
 
-  render() {
-    return this.state.loading || !this.state.caption ? (
-      <div>"loading..."</div>
-    ) : (
-      <StyledText>{this.state.caption.joke}</StyledText>
-    );
-  }
-}
+      updateLoading(false);
+      updateCaption(data);
+    }
+    fetchData();
+  }, []);
+
+  return loading || !caption ? (
+    <div>"loading..."</div>
+  ) : (
+    <StyledText>{caption.joke}</StyledText>
+  );
+};
 
 export default Caption;

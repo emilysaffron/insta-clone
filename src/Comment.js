@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import styled from "@emotion/styled";
 
 const StyledComments = styled.div`
@@ -32,6 +32,15 @@ const StyledInput = styled.input`
   outline: none;
 `;
 
+const Comment2 = () =>{
+
+  const [comments,updateComments] = useState([]);
+  
+
+
+
+
+}
 class Comment extends Component {
   constructor() {
     super();
