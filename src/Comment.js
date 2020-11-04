@@ -32,15 +32,7 @@ const StyledInput = styled.input`
   outline: none;
 `;
 
-const Comment2 = () =>{
 
-  const [comments,updateComments] = useState([]);
-  
-
-
-
-
-}
 class Comment extends Component {
   constructor() {
     super();

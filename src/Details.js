@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 
 const StyledDetails = styled.div`
@@ -20,35 +20,31 @@ const StyledName = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-class Details extends React.Component {
-  state = {
-    loading: true,
-    person: null,
-  };
 
-  async componentDidMount() {
-    const url = "https://api.randomuser.me/";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({ person: data.results[0], loading: false });
-  }
+const Details = () => {
+  const [loading, updateLoading] = useState(true);
+  const [details, updateDetails] = useState(null);
 
-  render() {
-    return (
-      <div>
-        {this.state.loading || !this.state.person ? (
-          <div>loading...</div>
-        ) : (
-          <StyledDetails>
-            <img src={this.state.person.picture.medium} alt="profile" />
-            <StyledName>
-              {this.state.person.name.first + this.state.person.name.last}
-            </StyledName>
-          </StyledDetails>
-        )}
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    async function fetchData() {
+      const url = "https://api.randomuser.me/";
+      const response = await fetch(url);
+      const data = await response.json();
+
+      updateLoading(false);
+      updateDetails(data.results[0]);
+    }
+    fetchData();
+  }, []);
+
+  return loading || !details ? (
+    <div>"loading..."</div>
+  ) : (
+    <StyledDetails>
+      <img src={details.picture.medium} alt="profile" />
+      <StyledName>{details.name.first + details.name.last}</StyledName>
+    </StyledDetails>
+  );
+};
 
 export default Details;
