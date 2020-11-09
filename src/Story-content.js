@@ -1,36 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-class StoryContent extends React.Component {
-  state = {
-    loading: true,
-    image1: null,
-    image2: null,
-    image3: null,
-    image4: null,
-  };
+const StoryContent = () => {
+  const [loading, updateLoading] = useState(true);
+  const [image1, updateImage1] = useState(null);
+  const [image2, updateImage2] = useState(null);
+  const [image3, updateImage3] = useState(null);
+  const [image4, updateImage4] = useState(null);
 
-  async componentDidMount() {
-    let url =
-      "https://api.unsplash.com/photos/random/?client_id=9Njuuq6n-SS10CSmB1lvvKQ-JLrDKUkJg3KyvNvkspI&count=4";
-    let response = await fetch(url);
-    let data = await response.json();
-    this.setState({
-      image1: data[0],
-      image2: data[1],
-      image3: data[2],
-      image4: data[3],
-      loading: false,
-    });
-  }
-  render() {
-    return this.state.loading || !this.state.image1 ? (
-      <div>loading...</div>
-    ) : (
-      <div className="storypost">
-        <img src={this.state.image1.urls.small} alt="storypost"></img>
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    async function fetchData() {
+      let url =
+        "https://api.unsplash.com/photos/random/?client_id=9Njuuq6n-SS10CSmB1lvvKQ-JLrDKUkJg3KyvNvkspI&count=4";
+      let response = await fetch(url);
+      let data = await response.json();
+      updateLoading(false);
+      updateImage1(data[0]);
+      updateImage2(data[1]);
+      updateImage3(data[2]);
+      updateImage4(data[3]);
+    }
+
+    fetchData();
+  }, []);
+
+  return loading || !image1 ? (
+    <div>loading...</div>
+  ) : (
+    <div className="storypost">
+      <img src={image1.urls.small} alt="storypost"></img>
+    </div>
+  );
+};
 
 export default StoryContent;
