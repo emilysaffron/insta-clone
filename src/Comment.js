@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 const StyledComments = styled.div`
