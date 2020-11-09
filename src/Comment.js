@@ -32,64 +32,41 @@ const StyledInput = styled.input`
   outline: none;
 `;
 
+const Comment = () => {
+  const [comments, updateComments] = useState([]);
+  const [comment, updateComment] = useState("");
 
-class Comment extends Component {
-  constructor() {
-    super();
-    this.state = {
-      comments: [],
-    };
-    this.onInputchange = this.onInputchange.bind(this);
-    this.onSubmitComment = this.onSubmitComment.bind(this);
-  }
-
-  onInputchange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
-
-  onSubmitComment() {
-    if (this.state.comment) {
-      let updated = this.state.comments.slice();
-      updated.push(this.state.comment);
-      this.setState({ comments: updated });
-      console.log(this.state.comments);
+  const SubmitComment = () => {
+    if (comment) {
+      let updated = comments.slice();
+      updated.push(comment);
+      updateComments(updated);
     }
-    this.clear();
-  }
+    updateComment("");
+  };
 
-  clear() {
-    let reset = "";
-    this.setState({
-      comment: reset,
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <StyledList>
-          {this.state.comments.map((item) => {
-            return <li>{item}</li>;
-          })}
-        </StyledList>
-        <StyledComments>
-          <StyledInput
-            name="comment"
-            type="text"
-            placeholder="Add a comment..."
-            autoComplete="off"
-            value={this.state.comment}
-            onChange={this.onInputchange}
-          />
-          <div>
-            <button onClick={this.onSubmitComment}>Send</button>
-          </div>
-        </StyledComments>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <StyledList>
+        {comments.map((item) => {
+          return <li>{item}</li>;
+        })}
+      </StyledList>
+      <StyledComments>
+        <StyledInput
+          name="comment"
+          type="text"
+          placeholder="Add a comment..."
+          autoComplete="off"
+          value={comment}
+          onChange={(e) => updateComment(e.target.value)}
+        />
+        <div>
+          <button onClick={SubmitComment}>Send</button>
+        </div>
+      </StyledComments>
+    </div>
+  );
+};
 
 export default Comment;
